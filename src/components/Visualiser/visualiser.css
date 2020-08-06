@@ -1,0 +1,28 @@
+.visualiser {
+  position: fixed;
+  margin-left: 200px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(41, 41, 41);
+}
+
+.container {
+  position: relative;
+  margin-top: 15%;
+  margin-bottom: 0%;
+  margin-left: 5%;
+  width: 1000px;
+  height: 60%;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.bar {
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  background: linear-gradient(0.4turn, #64ffda, #64ff8d);
+  opacity: 0.4;
+  margin: 1px;
+}

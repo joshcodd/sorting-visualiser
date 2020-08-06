@@ -1,0 +1,15 @@
+.sidebar {
+  height: 100%;
+  position: fixed;
+  width: 200px;
+  background-color: rgb(26, 25, 25);
+  display: inline-block;
+}
+
+h1 {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: -webkit-linear-gradient(#64ffda, #64ff8d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
