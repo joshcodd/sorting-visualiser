@@ -1,4 +1,4 @@
-#Sorting Visualizer
+#Sorting Visualiser
 
 > A sorting visualizer created using React
 
