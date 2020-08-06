@@ -1,7 +1,7 @@
 import React from "react";
 import "./sidebar.css";
 
-function Sidebar() {
+function Sidebar(props) {
   function handleClick() {}
 
   return (
