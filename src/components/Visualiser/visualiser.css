@@ -19,10 +19,13 @@
 }
 
 .bar {
+  border: 1px solid #64ff8d;
+  /* border-image-source: url(https://wallpaperstock.net/wallpapers/thumbs1/43896wide.jpg);
+  border-image-slice: 60 30; */
+
   display: inline-block;
   width: 0px;
   height: 0px;
-  background: linear-gradient(0.4turn, #64ffda, #64ff8d);
-  opacity: 0.4;
+  opacity: 0.5;
   margin: 1px;
 }
