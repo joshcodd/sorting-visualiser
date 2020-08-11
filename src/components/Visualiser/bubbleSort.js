@@ -4,6 +4,7 @@
 // - The sorted array
 const timeLine = [];
 export default function bubbleSort(array) {
+  timeLine.length = 0; //clear array
   const sortingArray = [...array];
   for (let i = 0; i < sortingArray.length; i++) {
     for (let j = 0; j < sortingArray.length; j++) {

@@ -6,8 +6,8 @@ const timeLine = [];
 
 //Function to call the recursive quickSortMain and return the needed values to the app component.
 export default function quickSort(array) {
+  timeLine.length = 0; //clear array
   const sortingArray = [...array];
-
   quickSortMain(sortingArray, 0, sortingArray.length - 1);
   return { timeLine: timeLine, bars: sortingArray };
 }

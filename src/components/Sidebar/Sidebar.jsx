@@ -1,69 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import "./sidebar.css";
-
-let sliderValue = 50;
+import Slider from "../Slider/Slider";
+import SidebarButton from "../SidebarButton/SidebarButton";
 
 function Sidebar(props) {
-  function handleClick(event) {
+  const [sliderValue, setSliderValue] = useState(50);
+
+  function handleSortButton(event) {
     const value = event.target.value;
-    switch (value) {
-      case "merge":
-        props.onMerge();
-        break;
 
-      case "bubble":
-        props.onBubble();
-        break;
-
-      case "quick":
-        props.onQuick();
-        break;
-
-      case "reset":
-        console.log(sliderValue);
-        props.onReset(sliderValue);
-        break;
-
-      default:
-        break;
-    }
+    props.onSortButtonPress(value);
   }
 
-  function handleChange(event) {
-    sliderValue = event.target.value;
+  function handleResetButton() {
     props.onReset(sliderValue);
+  }
+
+  function handleSliderOnMouseUp(value) {
+    props.onReset(value);
+  }
+
+  function handleSliderChange(value) {
+    setSliderValue(value);
   }
 
   return (
     <div className="sidebar">
       <h1> Sorting Visualiser </h1>
-      <button className="btn" onClick={handleClick} value="merge">
-        Merge
-      </button>
-      <button className="btn" id="btn" onClick={handleClick} value="bubble">
-        Bubble
-      </button>
-      <button className="btn" onClick={handleClick} value="quick">
-        Quick
-      </button>
-      <button className="btn" onClick={handleClick}>
-        Insertion Sort
-      </button>
-      <button className="btn" onClick={handleClick} value="reset">
-        reset array
-      </button>
-
-      <div className="sliderContainer">
-        <input
-          type="range"
-          min="5"
-          max="100"
-          className="slider"
-          id="myRange"
-          onMouseUp={handleChange}
-        />
-        <output className="sliderOutput"> {sliderValue} </output>
-      </div>
+      <p> Pick a sorting algorithm</p>
+      <SidebarButton
+        text="Insertion"
+        action={props.currentAlgorithm === "" ? handleSortButton : null}
+      />
+      <SidebarButton
+        text="Bubble"
+        action={props.currentAlgorithm === "" ? handleSortButton : null}
+      />
+      <SidebarButton
+        text="Quick"
+        action={props.currentAlgorithm === "" ? handleSortButton : null}
+      />
+      <SidebarButton
+        text="Merge"
+        action={props.currentAlgorithm === "" ? handleSortButton : null}
+        className="btn-last"
+      />
+      <SidebarButton
+        text="Reset"
+        action={props.currentAlgorithm === "" ? handleResetButton : null}
+      />
+      <Slider
+        value={sliderValue}
+        onChange={props.currentAlgorithm === "" ? handleSliderChange : null}
+        onMouseUp={props.currentAlgorithm === "" ? handleSliderOnMouseUp : null}
+      />
     </div>
   );
 }

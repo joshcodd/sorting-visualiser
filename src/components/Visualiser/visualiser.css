@@ -28,4 +28,15 @@
   height: 0px;
   opacity: 0.5;
   margin: 1px;
+  transition: height 0.1s ease-out;
+}
+
+.bar-trans {
+  border: 1px solid #64ff8d;
+  transition: height 1s ease-out;
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  opacity: 0.5;
+  margin: 1px;
 }

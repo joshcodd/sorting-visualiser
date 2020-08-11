@@ -3,9 +3,9 @@ import "./visualiser.css";
 import SortingBar from "../SortingBar/SortingBar";
 
 function Visualiser(props) {
-  const numOfBars = props.numbars;
-  const barsWidth = 9700 / numOfBars;
-  const margin = 300 / numOfBars;
+  const numOfBars = props.bars.length;
+  const barsWidth = 9800 / numOfBars;
+  const margin = 200 / numOfBars;
 
   return (
     <div className="visualiser">

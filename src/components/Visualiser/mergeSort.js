@@ -5,6 +5,7 @@ const timeLine = [];
 
 //Function to call the recursive mergesortMain and return the needed values to the app component.
 export default function mergeSort(array) {
+  timeLine.length = 0; //clear array
   const sortingArray = [...array];
 
   mergeSortMain(sortingArray);

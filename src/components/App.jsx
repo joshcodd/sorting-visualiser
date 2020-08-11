@@ -4,108 +4,118 @@ import Visualiser from "./Visualiser/Visualiser";
 import quickSort from "./Visualiser/quickSort";
 import bubbleSort from "./Visualiser/bubbleSort";
 import mergeSort from "./Visualiser/mergeSort";
+import insertionSort from "./Visualiser/insertionSort";
 
 function App() {
   let [bars, setBars] = useState([]);
-  const [numberOfBars, setNumberOfBars] = useState(50);
+  let [currentAlgorithm, setCurrentAlgorithm] = useState("");
 
   //Generate and return array of random values (bar heights)
   function generateArray(numOfBars) {
+    //Add transition class for array reset animations.
+    const arrayBars = document.getElementsByClassName("bar");
+    while (arrayBars.length > 0) {
+      arrayBars[0].className = "bar-trans";
+    }
+
     const barsArray = [];
     for (let i = 0; i < numOfBars; i++) {
-      const barSize = Math.floor(Math.random() * 500);
-      barsArray.push(barSize);
+      const randomBarSize = Math.floor(Math.random() * 500);
+      barsArray.push(randomBarSize);
     }
     setBars(barsArray);
   }
 
-  //Generate array on load when bars = []
+  //Generate array on load.
   useEffect(() => {
-    generateArray(numberOfBars);
+    generateArray(50);
   }, []);
 
-  function handleSlider(val) {
-    setNumberOfBars(val);
+  //delay
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  // //Handle the different sort button clicks
-  function handleBubbleSortClick() {
-    const bubbleResult = bubbleSort(bars);
-    handleTimeline(bubbleResult, "bubble");
-  }
-
-  function handleMergeSortClick() {
-    const mergeResult = mergeSort(bars);
-    handleTimeline(mergeResult, "merge");
-  }
-
-  function handleQuickSortClick() {
-    const quickResult = quickSort(bars);
-    handleTimeline(quickResult, "quick");
-  }
-
-  async function handleTimeline(sortingResult, sort) {
-    const timeLine = sortingResult.timeLine;
-    const sortedArray = sortingResult.bars;
-    const arrayBars = document.getElementsByClassName("bar");
-
-    //delay
-    function wait(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
+  async function handleTimeline(searchType) {
+    //Remove transition class from classname.
+    const barsChangeTransition = document.getElementsByClassName("bar-trans");
+    while (barsChangeTransition.length > 0) {
+      barsChangeTransition[0].className = "bar";
     }
 
-    switch (sort) {
-      case "merge":
+    setCurrentAlgorithm(searchType);
+    let timeLine = [];
+    let sortedArray = [];
+    const arrayBars = document.getElementsByClassName("bar");
+
+    switch (searchType) {
+      case "Merge":
+        const mergeResult = mergeSort(bars);
+        timeLine = mergeResult.timeLine;
+        sortedArray = mergeResult.bars;
+
         for (let i = 0; i < timeLine.length; i++) {
           const [barOneIndex, barTwoIndex, newHeight] = timeLine[i];
           const barOne = arrayBars[barOneIndex].style;
           const barTwo = arrayBars[barTwoIndex].style;
-
           barOne.height = `${newHeight}px`;
-
           barOne.background = "red";
           barTwo.background = "red";
-
-          await wait(10);
-
+          await wait(20);
           barOne.background = "";
           barTwo.background = "";
         }
         break;
 
-      case "bubble":
+      case "Bubble":
+        const bubbleResult = bubbleSort(bars);
+        timeLine = bubbleResult.timeLine;
+        sortedArray = bubbleResult.bars;
+
         for (let i = 0; i < timeLine.length; i++) {
           const [barOneIndex, barTwoIndex, heightOne, HeightTwo] = timeLine[i];
           const barOne = arrayBars[barOneIndex].style;
           const barTwo = arrayBars[barTwoIndex].style;
-
           barOne.height = `${HeightTwo}px`;
           barTwo.height = `${heightOne}px`;
-
           barOne.background = "red";
           barTwo.background = "red";
-
-          await wait(10);
-
+          await wait(20);
           barOne.background = "";
           barTwo.background = "";
         }
         break;
 
-      case "quick":
+      case "Quick":
+        const quickResult = quickSort(bars);
+        timeLine = quickResult.timeLine;
+        sortedArray = quickResult.bars;
+
         for (let i = 0; i < timeLine.length; i++) {
           const [pivotIndex, barIndex, barHeight] = timeLine[i];
           const barOne = arrayBars[barIndex].style;
           const pivot = arrayBars[pivotIndex].style;
-
           barOne.height = `${barHeight}px`;
           barOne.background = "red";
           pivot.background = "yellow";
-
-          await wait(30);
-
+          await wait(20);
           barOne.background = "";
           pivot.background = "";
+        }
+        break;
+
+      case "Insertion":
+        const insertionResult = insertionSort(bars);
+        timeLine = insertionResult.timeLine;
+        sortedArray = insertionResult.bars;
+
+        for (let i = 0; i < timeLine.length; i++) {
+          const [barIndex, barHeight] = timeLine[i];
+          const barOne = arrayBars[barIndex].style;
+          barOne.height = `${barHeight}px`;
+          barOne.background = "red";
+          await wait(20);
+          barOne.background = "";
         }
         break;
 
@@ -113,19 +123,18 @@ function App() {
         alert("There has been an error please refresh");
         break;
     }
+    setCurrentAlgorithm("");
     setBars(sortedArray);
   }
 
   return (
     <div>
       <Sidebar
-        onMerge={handleMergeSortClick}
-        onBubble={handleBubbleSortClick}
-        onQuick={handleQuickSortClick}
         onReset={generateArray}
-        onSlider={handleSlider}
+        onSortButtonPress={handleTimeline}
+        currentAlgorithm={currentAlgorithm}
       />
-      <Visualiser bars={bars} numbars={numberOfBars} />
+      <Visualiser bars={bars} />
     </div>
   );
 }
