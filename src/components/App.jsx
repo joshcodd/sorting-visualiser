@@ -12,10 +12,10 @@ function App() {
 
   //Generate and return array of random values (bar heights)
   function generateArray(numOfBars) {
-    //Add transition class for array reset animations.
-    const arrayBars = document.getElementsByClassName("bar");
-    while (arrayBars.length > 0) {
-      arrayBars[0].className = "bar-trans";
+    const arrayBars = document.getElementsByClassName("bar-trans");
+    for (let i = 0; i < arrayBars.length; i++) {
+      console.log();
+      arrayBars[i].style.background = "";
     }
 
     const barsArray = [];
@@ -23,6 +23,7 @@ function App() {
       const randomBarSize = Math.floor(Math.random() * 500);
       barsArray.push(randomBarSize);
     }
+
     setBars(barsArray);
   }
 
@@ -30,6 +31,17 @@ function App() {
   useEffect(() => {
     generateArray(50);
   }, []);
+
+  useEffect(() => {
+    const arrayBars = document.getElementsByClassName("bar-trans");
+    for (let i = 0; i < arrayBars.length; i++) {
+      arrayBars[i].style.height = "250px";
+
+      setTimeout(function () {
+        arrayBars[i].style.height = bars[i] + "px";
+      }, 0.1);
+    }
+  }, [bars]);
 
   //delay
   function wait(ms) {
@@ -61,7 +73,7 @@ function App() {
           barOne.height = `${newHeight}px`;
           barOne.background = "red";
           barTwo.background = "red";
-          await wait(50);
+          await wait(10);
           barOne.background = "";
           barTwo.background = "";
         }
@@ -80,7 +92,7 @@ function App() {
           barTwo.height = `${heightOne}px`;
           barOne.background = "red";
           barTwo.background = "red";
-          await wait(50);
+          await wait(10);
           barOne.background = "";
           barTwo.background = "";
         }
@@ -98,7 +110,7 @@ function App() {
           barOne.height = `${barHeight}px`;
           barOne.background = "red";
           pivot.background = "yellow";
-          await wait(50);
+          await wait(10);
           barOne.background = "";
           pivot.background = "";
         }
@@ -114,7 +126,7 @@ function App() {
           const barOne = arrayBars[barIndex].style;
           barOne.height = `${barHeight}px`;
           barOne.background = "red";
-          await wait(50);
+          await wait(10);
           barOne.background = "";
         }
         break;
@@ -123,6 +135,20 @@ function App() {
         alert("There has been an error please refresh");
         break;
     }
+
+    const arrayBarsColor = document.getElementsByClassName("bar");
+    for (let i = 0; i < arrayBarsColor.length; i++) {
+      await wait(10);
+      arrayBarsColor[i].style.opacity = "0.7";
+      arrayBarsColor[i].style.background = "#ff2e63";
+    }
+
+    //Add transition class for array reset animations.
+    const arrayBarsClass = document.getElementsByClassName("bar");
+    while (arrayBarsClass.length > 0) {
+      arrayBars[0].className = "bar-trans";
+    }
+
     setCurrentAlgorithm("");
     setBars(sortedArray);
   }
