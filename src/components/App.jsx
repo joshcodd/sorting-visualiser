@@ -61,7 +61,7 @@ function App() {
           barOne.height = `${newHeight}px`;
           barOne.background = "red";
           barTwo.background = "red";
-          await wait(20);
+          await wait(50);
           barOne.background = "";
           barTwo.background = "";
         }
@@ -80,7 +80,7 @@ function App() {
           barTwo.height = `${heightOne}px`;
           barOne.background = "red";
           barTwo.background = "red";
-          await wait(20);
+          await wait(50);
           barOne.background = "";
           barTwo.background = "";
         }
@@ -98,7 +98,7 @@ function App() {
           barOne.height = `${barHeight}px`;
           barOne.background = "red";
           pivot.background = "yellow";
-          await wait(20);
+          await wait(50);
           barOne.background = "";
           pivot.background = "";
         }
@@ -114,7 +114,7 @@ function App() {
           const barOne = arrayBars[barIndex].style;
           barOne.height = `${barHeight}px`;
           barOne.background = "red";
-          await wait(20);
+          await wait(50);
           barOne.background = "";
         }
         break;

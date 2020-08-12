@@ -61,6 +61,10 @@ p {
   width: 100%;
 }
 
+.btn-active:before {
+  width: 100%;
+}
+
 .slider {
   -webkit-appearance: none !important;
   width: 150px;

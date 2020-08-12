@@ -20,8 +20,8 @@ function Slider(props) {
         max="100"
         className="slider"
         id="myRange"
-        onChange={handleChange}
-        onMouseUp={handleOnMouseUp}
+        onChange={props.currentAlgorithm === "" ? handleChange : null}
+        onMouseUp={props.currentAlgorithm === "" ? handleOnMouseUp : null}
         value={value}
       />
       <output className="sliderOutput"> {value} </output>

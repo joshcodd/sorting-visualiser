@@ -6,9 +6,7 @@ import SidebarButton from "../SidebarButton/SidebarButton";
 function Sidebar(props) {
   const [sliderValue, setSliderValue] = useState(50);
 
-  function handleSortButton(event) {
-    const value = event.target.value;
-
+  function handleSortButton(value) {
     props.onSortButtonPress(value);
   }
 
@@ -30,29 +28,35 @@ function Sidebar(props) {
       <p> Pick a sorting algorithm</p>
       <SidebarButton
         text="Insertion"
-        action={props.currentAlgorithm === "" ? handleSortButton : null}
+        action={handleSortButton}
+        currentAlgorithm={props.currentAlgorithm}
       />
       <SidebarButton
         text="Bubble"
-        action={props.currentAlgorithm === "" ? handleSortButton : null}
+        action={handleSortButton}
+        currentAlgorithm={props.currentAlgorithm}
       />
       <SidebarButton
         text="Quick"
-        action={props.currentAlgorithm === "" ? handleSortButton : null}
+        action={handleSortButton}
+        currentAlgorithm={props.currentAlgorithm}
       />
       <SidebarButton
         text="Merge"
-        action={props.currentAlgorithm === "" ? handleSortButton : null}
+        action={handleSortButton}
+        currentAlgorithm={props.currentAlgorithm}
         className="btn-last"
       />
       <SidebarButton
         text="Reset"
-        action={props.currentAlgorithm === "" ? handleResetButton : null}
+        action={handleResetButton}
+        currentAlgorithm={props.currentAlgorithm}
       />
       <Slider
         value={sliderValue}
-        onChange={props.currentAlgorithm === "" ? handleSliderChange : null}
-        onMouseUp={props.currentAlgorithm === "" ? handleSliderOnMouseUp : null}
+        currentAlgorithm={props.currentAlgorithm}
+        onChange={handleSliderChange}
+        onMouseUp={handleSliderOnMouseUp}
       />
     </div>
   );
