@@ -70,8 +70,8 @@ function App() {
           const barOne = arrayBars[barOneIndex].style;
           const barTwo = arrayBars[barTwoIndex].style;
           barOne.height = `${newHeight}px`;
-          barOne.background = "#F6ACB7";
-          barTwo.background = "#F6ACB7";
+          barOne.background = "#ff2e63";
+          barTwo.background = "#ff2e63";
           await wait(10);
           barOne.background = "";
           barTwo.background = "";
@@ -90,8 +90,8 @@ function App() {
           const barTwo = arrayBars[barTwoIndex].style;
           barOne.height = `${HeightTwo}px`;
           barTwo.height = `${heightOne}px`;
-          barOne.background = "#F6ACB7";
-          barTwo.background = "#F6ACB7";
+          barOne.background = "##ff2e63";
+          barTwo.background = "##ff2e63";
           await wait(10);
           barOne.background = "";
           barTwo.background = "";
@@ -109,7 +109,7 @@ function App() {
           const barOne = arrayBars[barIndex].style;
           const pivot = arrayBars[pivotIndex].style;
           barOne.height = `${barHeight}px`;
-          barOne.background = "#F6ACB7";
+          barOne.background = "##ff2e63";
           pivot.background = "#1b1b2f";
           await wait(10);
           barOne.background = "";
@@ -126,7 +126,7 @@ function App() {
           const [barIndex, barHeight] = timeLine[i];
           const barOne = arrayBars[barIndex].style;
           barOne.height = `${barHeight}px`;
-          barOne.background = "#F6ACB7";
+          barOne.background = "#ff2e63";
           await wait(10);
           barOne.background = "";
           await wait(10);
@@ -149,7 +149,7 @@ function App() {
       await wait(10);
       // arrayBarsColor[i].style.opacity = "0.7";
       console.log(arrayBarsColor[i].style.background);
-      arrayBarsColor[i].style.background = "#F6ACB7";
+      arrayBarsColor[i].style.background = "rgba(255, 255, 255, 0.253)";
       console.log(arrayBarsColor[i].style.background);
     }
 

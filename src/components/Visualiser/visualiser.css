@@ -5,11 +5,13 @@ html {
 body {
   width: 100%;
   height: 100%;
-  background: -webkit-linear-gradient(#fc2c45, #f86d82);
-  background: -o-linear-gradient(#fc2c45, #f86d82);
-  background: -moz-linear-gradient(#fc2c45, #f86d82);
-  background: linear-gradient(#fc2c45, #f86d82);
+  background: -webkit-linear-gradient(to right, #de6262, #ffb88c);
+  background: -o-linear-gradient(to right, #de6262, #ffb88c);
+  background: -moz-linear-gradient(to right, #de6262, #ffb88c);
+  background: linear-gradient(to right, #de6262, #ffb88c);
 
+  /* Other gradient options */
+  /* background: linear-gradient(to right, #bdc3c7, #2c3e50); */
   /* fav */
   /* background: linear-gradient(#fc2c45, #ff2e62c0); */
 }
@@ -41,6 +43,7 @@ body {
 
 .bar-trans {
   border: 1.5px solid white;
+
   width: 0px;
   height: 0px;
   transition: height 1s ease-out, background-color 0.5s ease-in-out;
