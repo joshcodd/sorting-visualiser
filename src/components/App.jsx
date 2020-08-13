@@ -9,6 +9,7 @@ import insertionSort from "./Visualiser/insertionSort";
 function App() {
   let [bars, setBars] = useState([]);
   let [currentAlgorithm, setCurrentAlgorithm] = useState("");
+  let [currentSpeed, setCurrentSpeed] = useState(10);
 
   //Generate and return array of random values (bar heights)
   function generateArray(numOfBars) {
@@ -72,10 +73,10 @@ function App() {
           barOne.height = `${newHeight}px`;
           barOne.background = "#ff2e63";
           barTwo.background = "#ff2e63";
-          await wait(10);
+          await wait(currentSpeed);
           barOne.background = "";
           barTwo.background = "";
-          await wait(10);
+          await wait(currentSpeed);
         }
         break;
 
@@ -92,10 +93,10 @@ function App() {
           barTwo.height = `${heightOne}px`;
           barOne.background = "##ff2e63";
           barTwo.background = "##ff2e63";
-          await wait(10);
+          await wait(currentSpeed);
           barOne.background = "";
           barTwo.background = "";
-          await wait(10);
+          await wait(currentSpeed);
         }
         break;
 
@@ -111,7 +112,7 @@ function App() {
           barOne.height = `${barHeight}px`;
           barOne.background = "##ff2e63";
           pivot.background = "#1b1b2f";
-          await wait(10);
+          await wait(currentSpeed);
           barOne.background = "";
           pivot.background = "";
         }
@@ -127,9 +128,9 @@ function App() {
           const barOne = arrayBars[barIndex].style;
           barOne.height = `${barHeight}px`;
           barOne.background = "#ff2e63";
-          await wait(10);
+          await wait(currentSpeed);
           barOne.background = "";
-          await wait(10);
+          await wait(currentSpeed);
         }
         break;
 
@@ -163,6 +164,8 @@ function App() {
         onReset={generateArray}
         onSortButtonPress={handleTimeline}
         currentAlgorithm={currentAlgorithm}
+        onSpeedChange={setCurrentSpeed}
+        algorithmSpeed={currentSpeed}
       />
       <Visualiser bars={bars} />
     </div>

@@ -5,6 +5,7 @@ import DropdownButton from "../DropdownButton/DropdownButton";
 
 function Sidebar(props) {
   const [sliderValue, setSliderValue] = useState(50);
+  const [algorithmSpeed, setSpeed] = useState(10);
 
   function handleSortButton(value) {
     props.onSortButtonPress(value);
@@ -14,17 +15,27 @@ function Sidebar(props) {
     props.onReset(sliderValue);
   }
 
-  function handleSliderOnMouseUp(value) {
+  function handleSizeSliderOnMouseUp(value) {
     props.onReset(value);
   }
 
-  function handleSliderChange(value) {
+  function handleSizeSliderChange(value) {
     setSliderValue(value);
+  }
+
+  function handleSpeedSliderChange(value) {
+    setSpeed(value);
+  }
+
+  function handleSpeedSliderOnMouseUp(value) {
+    props.onSpeedChange(value);
   }
 
   return (
     <div className="sidebar">
-      <h1> Sorting Algorithm Visualiser </h1>
+      <div className="title">
+        <h1> Sorting Algorithm Visualiser </h1>{" "}
+      </div>
 
       <label>ALGORITHMS</label>
       <SidebarButton
@@ -57,12 +68,23 @@ function Sidebar(props) {
       />
 
       <DropdownButton
+        text="Speed"
+        action={handleResetButton}
+        handleSliderChange={handleSpeedSliderChange}
+        handleSliderOnMouseUp={handleSpeedSliderOnMouseUp}
+        currentAlgorithm={props.currentAlgorithm}
+        sliderValue={algorithmSpeed}
+        displayValueInOutput={false}
+      />
+
+      <DropdownButton
         text="Size"
         action={handleResetButton}
-        handleSliderChange={handleSliderChange}
-        handleSliderOnMouseUp={handleSliderOnMouseUp}
+        handleSliderChange={handleSizeSliderChange}
+        handleSliderOnMouseUp={handleSizeSliderOnMouseUp}
         currentAlgorithm={props.currentAlgorithm}
         sliderValue={sliderValue}
+        displayValueInOutput={true}
       />
     </div>
   );

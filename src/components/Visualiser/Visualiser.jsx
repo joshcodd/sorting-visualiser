@@ -27,7 +27,7 @@ function Visualiser(props) {
   }, []);
 
   return (
-    <div ref={targetRef} className="container">
+    <div ref={targetRef} className="visualiser">
       {props.bars.map((barHeight, index) => {
         return (
           <SortingBar

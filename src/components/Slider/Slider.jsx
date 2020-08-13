@@ -13,16 +13,18 @@ function Slider(props) {
 
   return (
     <div className="sliderContainer">
+      {props.sliderType === "Speed" && <label className="left">Fast</label>}
       <input
         type="range"
         min="5"
         max="100"
-        className="slider"
+        className={"slider" + props.sliderType}
         id="myRange"
         onChange={props.currentAlgorithm === "" ? handleChange : null}
         onMouseUp={props.currentAlgorithm === "" ? handleOnMouseUp : null}
         value={value}
       />
+      {props.sliderType === "Speed" && <label className="right">Slow</label>}
     </div>
   );
 }

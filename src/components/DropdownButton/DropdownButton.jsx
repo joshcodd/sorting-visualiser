@@ -29,13 +29,18 @@ function DropdownButton(props) {
       <ul style={isDown ? { background: "visible" } : { display: "none" }}>
         <li>
           <div className="triangle"></div>
+
           <Slider
             value={props.sliderValue}
             currentAlgorithm={props.currentAlgorithm}
             onChange={props.handleSliderChange}
             onMouseUp={props.handleSliderOnMouseUp}
+            sliderType={props.text}
           />
-          <div className="sliderOutput">{props.sliderValue}</div>
+
+          {props.displayValueInOutput && (
+            <div className="sliderOutput">{props.sliderValue}</div>
+          )}
         </li>
       </ul>
     </div>
