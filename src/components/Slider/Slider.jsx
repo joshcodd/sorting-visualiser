@@ -13,7 +13,6 @@ function Slider(props) {
 
   return (
     <div className="sliderContainer">
-      <label className="sliderTitle">Collection Size</label>
       <input
         type="range"
         min="5"
@@ -24,7 +23,6 @@ function Slider(props) {
         onMouseUp={props.currentAlgorithm === "" ? handleOnMouseUp : null}
         value={value}
       />
-      <output className="sliderOutput"> {value} </output>
     </div>
   );
 }

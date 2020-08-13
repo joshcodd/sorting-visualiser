@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./sidebar.css";
-import Slider from "../Slider/Slider";
 import SidebarButton from "../SidebarButton/SidebarButton";
+import DropdownButton from "../DropdownButton/DropdownButton";
 
 function Sidebar(props) {
   const [sliderValue, setSliderValue] = useState(50);
@@ -24,8 +24,9 @@ function Sidebar(props) {
 
   return (
     <div className="sidebar">
-      <h1> Sorting Visualiser </h1>
-      <p> Pick a sorting algorithm</p>
+      <h1> Sorting Algorithm Visualiser </h1>
+
+      <label>ALGORITHMS</label>
       <SidebarButton
         text="Insertion"
         action={handleSortButton}
@@ -47,16 +48,21 @@ function Sidebar(props) {
         currentAlgorithm={props.currentAlgorithm}
         className="btn-last"
       />
+
+      <label>COLLECTION</label>
       <SidebarButton
         text="Reset"
         action={handleResetButton}
         currentAlgorithm={props.currentAlgorithm}
       />
-      <Slider
-        value={sliderValue}
+
+      <DropdownButton
+        text="Size"
+        action={handleResetButton}
+        handleSliderChange={handleSliderChange}
+        handleSliderOnMouseUp={handleSliderOnMouseUp}
         currentAlgorithm={props.currentAlgorithm}
-        onChange={handleSliderChange}
-        onMouseUp={handleSliderOnMouseUp}
+        sliderValue={sliderValue}
       />
     </div>
   );

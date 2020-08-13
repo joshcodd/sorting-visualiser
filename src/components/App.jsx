@@ -14,16 +14,14 @@ function App() {
   function generateArray(numOfBars) {
     const arrayBars = document.getElementsByClassName("bar-trans");
     for (let i = 0; i < arrayBars.length; i++) {
-      console.log();
       arrayBars[i].style.background = "";
     }
 
     const barsArray = [];
     for (let i = 0; i < numOfBars; i++) {
-      const randomBarSize = Math.floor(Math.random() * 500);
+      const randomBarSize = Math.floor(Math.random() * 700);
       barsArray.push(randomBarSize);
     }
-
     setBars(barsArray);
   }
 
@@ -32,6 +30,7 @@ function App() {
     generateArray(50);
   }, []);
 
+  //fix bug
   useEffect(() => {
     const arrayBars = document.getElementsByClassName("bar-trans");
     for (let i = 0; i < arrayBars.length; i++) {
@@ -71,11 +70,12 @@ function App() {
           const barOne = arrayBars[barOneIndex].style;
           const barTwo = arrayBars[barTwoIndex].style;
           barOne.height = `${newHeight}px`;
-          barOne.background = "red";
-          barTwo.background = "red";
+          barOne.background = "#F6ACB7";
+          barTwo.background = "#F6ACB7";
           await wait(10);
           barOne.background = "";
           barTwo.background = "";
+          await wait(10);
         }
         break;
 
@@ -90,11 +90,12 @@ function App() {
           const barTwo = arrayBars[barTwoIndex].style;
           barOne.height = `${HeightTwo}px`;
           barTwo.height = `${heightOne}px`;
-          barOne.background = "red";
-          barTwo.background = "red";
+          barOne.background = "#F6ACB7";
+          barTwo.background = "#F6ACB7";
           await wait(10);
           barOne.background = "";
           barTwo.background = "";
+          await wait(10);
         }
         break;
 
@@ -108,8 +109,8 @@ function App() {
           const barOne = arrayBars[barIndex].style;
           const pivot = arrayBars[pivotIndex].style;
           barOne.height = `${barHeight}px`;
-          barOne.background = "red";
-          pivot.background = "yellow";
+          barOne.background = "#F6ACB7";
+          pivot.background = "#1b1b2f";
           await wait(10);
           barOne.background = "";
           pivot.background = "";
@@ -125,9 +126,10 @@ function App() {
           const [barIndex, barHeight] = timeLine[i];
           const barOne = arrayBars[barIndex].style;
           barOne.height = `${barHeight}px`;
-          barOne.background = "red";
+          barOne.background = "#F6ACB7";
           await wait(10);
           barOne.background = "";
+          await wait(10);
         }
         break;
 
@@ -136,17 +138,19 @@ function App() {
         break;
     }
 
-    const arrayBarsColor = document.getElementsByClassName("bar");
-    for (let i = 0; i < arrayBarsColor.length; i++) {
-      await wait(10);
-      arrayBarsColor[i].style.opacity = "0.7";
-      arrayBarsColor[i].style.background = "#ff2e63";
-    }
-
     //Add transition class for array reset animations.
     const arrayBarsClass = document.getElementsByClassName("bar");
     while (arrayBarsClass.length > 0) {
       arrayBars[0].className = "bar-trans";
+    }
+
+    const arrayBarsColor = document.getElementsByClassName("bar-trans");
+    for (let i = arrayBarsColor.length - 1; i >= 0; i--) {
+      await wait(10);
+      // arrayBarsColor[i].style.opacity = "0.7";
+      console.log(arrayBarsColor[i].style.background);
+      arrayBarsColor[i].style.background = "#F6ACB7";
+      console.log(arrayBarsColor[i].style.background);
     }
 
     setCurrentAlgorithm("");
