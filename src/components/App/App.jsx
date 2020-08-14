@@ -108,7 +108,7 @@ function App() {
           const barOne = arrayBars[barIndex].style;
           const pivot = arrayBars[pivotIndex].style;
           barOne.height = `${barHeight}px`;
-          barOne.background = "##ff2e63";
+          barOne.background = "#ff2e63";
           pivot.background = "#1b1b2f";
           await pauseFor(currentSpeed);
           barOne.background = "";
