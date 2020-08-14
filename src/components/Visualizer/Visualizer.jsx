@@ -10,13 +10,8 @@ function Visualizer(props) {
   useLayoutEffect(() => {
     if (targetRef.current) {
       let width = targetRef.current.offsetWidth;
-      let height = targetRef.current.offsetHeight;
       let marginSpace = (width / 100) * 20;
       let barWidth = width - marginSpace;
-
-      console.log(height);
-      console.log(width);
-      console.log(marginSpace);
 
       setDimensions({
         marginSpace: marginSpace,
