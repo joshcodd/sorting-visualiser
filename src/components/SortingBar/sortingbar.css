@@ -1,1 +1,19 @@
+.bar {
+  border: 1px solid white;
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  transition: height 0.1s ease-out;
+}
 
+.slowTransition {
+  transition: height 1s ease-out, background-color 0.5s ease-in-out;
+}
+
+.fastTransition {
+  transition: height 0.1s ease-out;
+}
+
+.colouredIn {
+  background: rgba(255, 255, 255, 0.253);
+}

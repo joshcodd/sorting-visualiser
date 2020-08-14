@@ -1,4 +1,5 @@
 import React from "react";
+import "./slider.css";
 
 function Slider(props) {
   let value = props.value;
@@ -12,20 +13,16 @@ function Slider(props) {
   }
 
   return (
-    <div className="sliderContainer">
-      {props.sliderType === "Speed" && <label className="left">Fast</label>}
-      <input
-        type="range"
-        min="5"
-        max="100"
-        className={"slider" + props.sliderType}
-        id="myRange"
-        onChange={props.currentAlgorithm === "" ? handleChange : null}
-        onMouseUp={props.currentAlgorithm === "" ? handleOnMouseUp : null}
-        value={value}
-      />
-      {props.sliderType === "Speed" && <label className="right">Slow</label>}
-    </div>
+    <input
+      type="range"
+      min="5"
+      max="100"
+      className={"slider slider" + props.sliderType}
+      id="myRange"
+      onChange={props.currentAlgorithm === "" ? handleChange : null}
+      onMouseUp={props.currentAlgorithm === "" ? handleOnMouseUp : null}
+      value={value}
+    />
   );
 }
 

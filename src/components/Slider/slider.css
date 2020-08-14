@@ -1,0 +1,24 @@
+.slider {
+  -webkit-appearance: none !important;
+  height: 15px;
+  background: #eaeaea;
+  border-radius: 10px;
+}
+
+.sliderSize {
+  width: 80%;
+  margin: 0px;
+}
+
+.sliderSpeed {
+  width: 60%;
+  margin: 0px;
+}
+
+.sliderOutput {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  font-size: 15px;
+  opacity: 0.7;
+  margin: 5px 0px 0px 58.5%;
+}

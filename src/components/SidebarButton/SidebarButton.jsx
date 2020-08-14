@@ -1,4 +1,5 @@
 import React from "react";
+import "./sidebarbutton.css";
 
 function SidebarButton(props) {
   let currentAlgorithm = props.currentAlgorithm;
@@ -12,8 +13,9 @@ function SidebarButton(props) {
   return (
     <button
       className={
-        (currentAlgorithm === props.text ? "btn btn-active " : "btn ") +
-        props.className
+        (currentAlgorithm === props.text
+          ? "sidebarButton sidebarButtonActive "
+          : "sidebarButton ") + props.className
       }
       onClick={handleClick}
       value={props.text}

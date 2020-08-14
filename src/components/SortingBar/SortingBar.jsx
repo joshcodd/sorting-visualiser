@@ -8,7 +8,7 @@ function SortingBar(props) {
     width: props.width,
     height: props.height,
   };
-  return <div className="bar-trans" style={heightStyle}></div>;
+  return <div className="bar slowTransition" style={heightStyle}></div>;
 }
 
 export default SortingBar;

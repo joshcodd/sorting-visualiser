@@ -11,12 +11,16 @@ function App() {
   let [currentAlgorithm, setCurrentAlgorithm] = useState("");
   let [currentSpeed, setCurrentSpeed] = useState(10);
 
+  function changeBarClass(newClass) {
+    const bars = document.getElementsByClassName("bar");
+    for (let i = 0; i < bars.length; i++) {
+      bars[i].className = newClass;
+    }
+  }
+
   //Generate and return array of random values (bar heights)
   function generateArray(numOfBars) {
-    const arrayBars = document.getElementsByClassName("bar-trans");
-    for (let i = 0; i < arrayBars.length; i++) {
-      arrayBars[i].style.background = "";
-    }
+    changeBarClass("bar slowTransition");
 
     const barsArray = [];
     for (let i = 0; i < numOfBars; i++) {
@@ -31,9 +35,9 @@ function App() {
     generateArray(50);
   }, []);
 
-  //fix bug
+  //Set height to ensure all bars animate on reset.
   useEffect(() => {
-    const arrayBars = document.getElementsByClassName("bar-trans");
+    const arrayBars = document.getElementsByClassName("bar");
     for (let i = 0; i < arrayBars.length; i++) {
       arrayBars[i].style.height = "250px";
 
@@ -48,12 +52,10 @@ function App() {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  //Use correct sort and timeline parser, for sort selected.
   async function handleTimeline(searchType) {
     //Remove transition class from classname.
-    const barsChangeTransition = document.getElementsByClassName("bar-trans");
-    while (barsChangeTransition.length > 0) {
-      barsChangeTransition[0].className = "bar";
-    }
+    changeBarClass("bar fastTransition");
 
     setCurrentAlgorithm(searchType);
     let timeLine = [];
@@ -140,19 +142,7 @@ function App() {
     }
 
     //Add transition class for array reset animations.
-    const arrayBarsClass = document.getElementsByClassName("bar");
-    while (arrayBarsClass.length > 0) {
-      arrayBars[0].className = "bar-trans";
-    }
-
-    const arrayBarsColor = document.getElementsByClassName("bar-trans");
-    for (let i = arrayBarsColor.length - 1; i >= 0; i--) {
-      await wait(10);
-      // arrayBarsColor[i].style.opacity = "0.7";
-      console.log(arrayBarsColor[i].style.background);
-      arrayBarsColor[i].style.background = "rgba(255, 255, 255, 0.253)";
-      console.log(arrayBarsColor[i].style.background);
-    }
+    changeBarClass("bar slowTransition colouredIn");
 
     setCurrentAlgorithm("");
     setBars(sortedArray);

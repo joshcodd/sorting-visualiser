@@ -14,6 +14,14 @@ body {
   /* background: linear-gradient(#fc2c45, #ff2e62c0); */
 }
 
+button:active,
+button:focus,
+input:active,
+input:focus {
+  box-shadow: none;
+  outline: 0;
+}
+
 .visualiser {
   display: flex;
   align-items: flex-end;
@@ -24,21 +32,6 @@ body {
   height: 100%;
   padding: 0 1% 0 1%;
   z-index: -1;
-}
-
-.bar {
-  border: 1px solid white;
-  display: inline-block;
-  transition: height 0.1s ease-out;
-}
-
-.bar-trans {
-  border: 1.5px solid white;
-
-  width: 0px;
-  height: 0px;
-  transition: height 1s ease-out, background-color 0.5s ease-in-out;
-  display: inline-block;
 }
 
 @media only screen and (max-width: 600px) {

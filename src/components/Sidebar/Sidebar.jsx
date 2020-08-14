@@ -37,7 +37,7 @@ function Sidebar(props) {
         <h1> Sorting Algorithm Visualiser </h1>{" "}
       </div>
 
-      <label>ALGORITHMS</label>
+      <label className="sidebarSectionTitle">ALGORITHMS</label>
       <SidebarButton
         text="Insertion"
         action={handleSortButton}
@@ -60,7 +60,7 @@ function Sidebar(props) {
         className="btn-last"
       />
 
-      <label>COLLECTION</label>
+      <label className="sidebarSectionTitle">COLLECTION</label>
       <SidebarButton
         text="Reset"
         action={handleResetButton}
