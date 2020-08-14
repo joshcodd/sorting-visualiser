@@ -1,6 +1,6 @@
 {
-  "homepage": "http://joshcodd.github.io/sorting-visualiser",
-  "name": "sorting-app",
+  "homepage": "http://joshcodd.github.io/sorting-visualizer",
+  "name": "sorting-visualizer",
   "version": "0.1.0",
   "private": false,
   "dependencies": {

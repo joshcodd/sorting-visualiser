@@ -1,6 +1,6 @@
 //Function to take in an array and return :
 // - A timeLine, I.E an array of pairs where the two values are the index of bars to be swapped in
-//   order to visualise a bubble sort step by step.
+//   order to visualize a bubble sort step by step.
 // - The sorted array
 const timeLine = [];
 export default function bubbleSort(array) {

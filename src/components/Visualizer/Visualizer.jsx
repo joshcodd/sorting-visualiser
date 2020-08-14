@@ -1,10 +1,9 @@
 import React, { useRef, useState, useLayoutEffect } from "react";
-import "./visualiser.css";
+import "./visualizer.css";
 import SortingBar from "../SortingBar/SortingBar";
 
-function Visualiser(props) {
+function Visualizer(props) {
   const bars = props.bars;
-
   const targetRef = useRef();
   const [dimensions, setDimensions] = useState({ marginSpace: 0, barWidth: 0 });
 
@@ -27,7 +26,7 @@ function Visualiser(props) {
   }, []);
 
   return (
-    <div ref={targetRef} className="visualiser">
+    <div ref={targetRef} className="visualizer">
       {props.bars.map((barHeight, index) => {
         return (
           <SortingBar
@@ -42,4 +41,4 @@ function Visualiser(props) {
   );
 }
 
-export default Visualiser;
+export default Visualizer;

@@ -1,6 +1,5 @@
 import React from "react";
 import "./sortingbar.css";
-import "../Visualiser/visualiser.css";
 
 function SortingBar(props) {
   const heightStyle = {

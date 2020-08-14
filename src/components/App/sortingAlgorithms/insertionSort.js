@@ -1,6 +1,6 @@
 //Function to take in an array and return :
 // - A timeLine, I.E an array of pairs where the two values are the index of bars to be swapped in
-//   order to visualise a insertion sort step by step.
+//   order to visualize a insertion sort step by step.
 // - The sorted array
 let timeLine = [];
 export default function insertionSort(array) {

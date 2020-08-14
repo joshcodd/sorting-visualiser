@@ -34,7 +34,7 @@ function Sidebar(props) {
   return (
     <div className="sidebar">
       <div className="title">
-        <h1> Sorting Algorithm Visualiser </h1>{" "}
+        <h1> Sorting Algorithm Visualizer </h1>{" "}
       </div>
 
       <label className="sidebarSectionTitle">ALGORITHMS</label>

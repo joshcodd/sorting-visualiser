@@ -13,8 +13,6 @@ function DropdownButton(props) {
     } else if (isDown === false) {
       currentIsDown = true;
     }
-
-    console.log(currentIsDown);
     setIsDown(currentIsDown);
   }
 
